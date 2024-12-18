@@ -1,4 +1,5 @@
 
+import { dateParser } from '../../../helpers/utils';
 import { IWorkIntrf } from '../../../stores/index.interface';
 import { SectionHeading } from '../atoms/SectionHeading';
 import { SectionList } from '../atoms/SectionList';
@@ -18,8 +19,8 @@ export const WorkSection = ({ experience }: { experience: IWorkIntrf[] }) => {
               <SectionSubtitle label={item.position} />
               <div>
                 <p className="text-xs">
-                  
-                  {item.isWorkingHere }
+                  {dateParser(item.startDate)} -{' '}
+                  {item.isWorkingHere ? 'present' : dateParser(item.endDate)}
                 </p>
               </div>
             </div>

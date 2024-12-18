@@ -1,4 +1,5 @@
 
+import { dateParser } from '../../../helpers/utils';
 import { IAwards } from '../../../stores/index.interface';
 import { SectionHeading } from '../atoms/SectionHeading';
 import { SectionList } from '../atoms/SectionList';
@@ -15,9 +16,7 @@ export const AwardSection = ({ awardsReceived }: { awardsReceived: IAwards[] }) 
 
       {awardsReceived.map((award: IAwards, index: number) => {
 
-const formattedDate = award.date instanceof Date ? 
-award.date.toLocaleDateString() : 
-'Invalid Date';
+
 
         return (
           <div key={index} className="pb-2">
@@ -25,7 +24,7 @@ award.date.toLocaleDateString() :
             <div className="flex justify-between awards-center">
               <SectionSubtitle label={award.awarder} />
               <div>
-                <p className="text-xs">{formattedDate}</p>
+              <p className="text-xs">{dateParser(award.date)}</p>
               </div>
             </div>
             <SectionList>

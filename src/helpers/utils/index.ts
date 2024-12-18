@@ -1,5 +1,5 @@
 import type { Dayjs } from 'dayjs/index';
-import * as dayjs from 'dayjs';
+import dayjs from 'dayjs';
 
 export const dateParser = (dateValue: string | Dayjs | null, outputFormat = 'MMM YYYY') => {
   if (dateValue === null) return;
