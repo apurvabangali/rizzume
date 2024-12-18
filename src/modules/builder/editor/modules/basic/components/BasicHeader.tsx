@@ -18,7 +18,7 @@ const BasicHeader = ({
           display: 'flex',
           justifyContent: 'space-between',
           padding: '0.5rem 0',
-          borderBottom: '1px solid #ccc',
+
         }}
       >
         {tabTitles.map((title, index) => (
@@ -31,8 +31,9 @@ const BasicHeader = ({
               border: 'none',
               cursor: 'pointer',
               fontSize: '1rem',
-              color: activeTab === index ? 'blue' : 'rgb(46 64 82)',
+              
               textTransform: 'none',
+              borderBottom: activeTab === index ? '2px solid #EF9C66' : 'none',
             }}
           >
             {title}

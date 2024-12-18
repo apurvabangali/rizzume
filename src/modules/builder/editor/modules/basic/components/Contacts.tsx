@@ -12,17 +12,17 @@ const Contacts = ({
     <Fragment>
       <TextField
         label="Name"
-        variant="filled"
+        variant="outlined"
         value={basicTabs.name}
         onChange={(event: ChangeEvent<HTMLInputElement>) => {
           onChangeHandler(event.target.value, 'name');
         }}
         fullWidth
-        sx={{ marginBottom: 2 }} 
+        sx={{ marginBottom: 2, marginTop:2 }} 
       />
       <TextField
         label="Image URL"
-        variant="filled"
+        variant="outlined"
         value={basicTabs.image}
         onChange={(event: ChangeEvent<HTMLInputElement>) => {
           onChangeHandler(event.target.value, 'image');
@@ -32,7 +32,7 @@ const Contacts = ({
       />
       <TextField
         label="Title"
-        variant="filled"
+        variant="outlined"
         value={basicTabs.label}
         onChange={(event: ChangeEvent<HTMLInputElement>) => {
           onChangeHandler(event.target.value, 'label');
@@ -42,7 +42,7 @@ const Contacts = ({
       />
       <TextField
         label="Email"
-        variant="filled"
+        variant="outlined"
         value={basicTabs.email}
         onChange={(event: ChangeEvent<HTMLInputElement>) => {
           onChangeHandler(event.target.value, 'email');
@@ -52,7 +52,7 @@ const Contacts = ({
       />
       <TextField
         label="Website URL"
-        variant="filled"
+        variant="outlined"
         value={basicTabs.url}
         onChange={(event: ChangeEvent<HTMLInputElement>) => {
           onChangeHandler(event.target.value, 'url');
@@ -62,7 +62,7 @@ const Contacts = ({
       />
       <TextField
         label="Phone"
-        variant="filled"
+        variant="outlined"
         value={basicTabs.phone}
         onChange={(event: ChangeEvent<HTMLInputElement>) => {
           onChangeHandler(event.target.value, 'phone');
@@ -72,7 +72,7 @@ const Contacts = ({
       />
       <TextField
         label="Location"
-        variant="filled"
+        variant="outlined"
         value={basicTabs.location.city}
         onChange={(event: ChangeEvent<HTMLInputElement>) => {
           const location = basicTabs.location;
@@ -84,7 +84,7 @@ const Contacts = ({
       />
       <TextField
         label="Relevant Experience"
-        variant="filled"
+        variant="outlined"
         value={basicTabs.relExp}
         onChange={(event: ChangeEvent<HTMLInputElement>) => {
           onChangeHandler(event.target.value, 'relExp');
@@ -94,7 +94,7 @@ const Contacts = ({
       />
       <TextField
         label="Total Experience"
-        variant="filled"
+        variant="outlined"
         value={basicTabs.totalExp}
         onChange={(event: ChangeEvent<HTMLInputElement>) => {
           onChangeHandler(event.target.value, 'totalExp');

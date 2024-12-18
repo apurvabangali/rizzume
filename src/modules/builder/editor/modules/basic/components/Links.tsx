@@ -94,17 +94,17 @@ const Links = ({
     <Fragment>
       <TextField
         label="LinkedIn"
-        variant="filled"
+        variant="outlined"
         value={networks[SUPPORTED_NETWORKS.linkedin].url}
         onChange={(event: ChangeEvent<HTMLInputElement>) => {
           onURLChange(event.target.value, SUPPORTED_NETWORKS.linkedin);
         }}
         fullWidth
-        sx={{ marginBottom: 2 }} 
+        sx={{ marginBottom: 2 , marginTop: 2}} 
       />
       <TextField
         label="Twitter"
-        variant="filled"
+        variant="outlined"
         value={networks[SUPPORTED_NETWORKS.twitter].url}
         onChange={(event: ChangeEvent<HTMLInputElement>) => {
           onURLChange(event.target.value, SUPPORTED_NETWORKS.twitter);
@@ -114,7 +114,7 @@ const Links = ({
       />
       <TextField
         label="Github"
-        variant="filled"
+        variant="outlined"
         value={networks[SUPPORTED_NETWORKS.github].url}
         onChange={(event: ChangeEvent<HTMLInputElement>) => {
           onURLChange(event.target.value, SUPPORTED_NETWORKS.github);
@@ -124,7 +124,7 @@ const Links = ({
       />
       <TextField
         label="Hackerrank"
-        variant="filled"
+        variant="outlined"
         value={networks[SUPPORTED_NETWORKS.hackerrank].url}
         onChange={(event: ChangeEvent<HTMLInputElement>) => {
           onURLChange(event.target.value, SUPPORTED_NETWORKS.hackerrank);
@@ -134,7 +134,7 @@ const Links = ({
       />
       <TextField
         label="HackerEarth"
-        variant="filled"
+        variant="outlined"
         value={networks[SUPPORTED_NETWORKS.hackerearth].url}
         onChange={(event: ChangeEvent<HTMLInputElement>) => {
           onURLChange(event.target.value, SUPPORTED_NETWORKS.hackerearth);
@@ -144,7 +144,7 @@ const Links = ({
       />
       <TextField
         label="CodeChef"
-        variant="filled"
+        variant="outlined"
         value={networks[SUPPORTED_NETWORKS.codechef].url}
         onChange={(event: ChangeEvent<HTMLInputElement>) => {
           onURLChange(event.target.value, SUPPORTED_NETWORKS.codechef);
@@ -154,7 +154,7 @@ const Links = ({
       />
       <TextField
         label="Leetcode"
-        variant="filled"
+        variant="outlined"
         value={networks[SUPPORTED_NETWORKS.leetcode].url}
         onChange={(event: ChangeEvent<HTMLInputElement>) => {
           onURLChange(event.target.value, SUPPORTED_NETWORKS.leetcode);
