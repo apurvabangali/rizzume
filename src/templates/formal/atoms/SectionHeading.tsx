@@ -2,7 +2,7 @@ import React from "react";
 
 export const SectionHeading = ({ title }: { title: string }) => {
     return (
-      <div className="relative mb-2 text-base font-medium before:content-[''] before:w-full before:border-b-4 before:border-color-[#b2b4b6] before:absolute before:-bottom-0.5">
+      <div className="relative mb-2 text-lg font-medium border-b-2 border-cyan-950 pb-2">
         {title}
       </div>
     );

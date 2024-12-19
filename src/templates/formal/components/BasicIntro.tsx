@@ -1,7 +1,6 @@
 
 import React from 'react';
 import { ProfileContact } from '../atoms/ProfileContact';
-// import { ProfileImage } from 'src/helpers/common/components/ProfileImage';
 import { ProfileName } from '../atoms/ProfileName';
 import { SectionSubtitle } from '../atoms/SectionSubtitle';
 
@@ -38,7 +37,7 @@ export const BasicIntro = ({
           )}
         </div>
       </div>
-      {/* <ProfileImage src={image} height="100px" width="100px" /> */}
+      <img src={image} height="100px" width="100px" className="rounded-full"/>
     </div>
   );
 };

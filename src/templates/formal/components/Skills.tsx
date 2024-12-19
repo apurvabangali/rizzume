@@ -9,7 +9,7 @@ export const SkillsSection = ({ title, list }: { title: string; list: IItem[] })
         {list.map((item: IItem, index) => (
           <div
             key={index}
-            className="py-1 px-2 text-sm font-medium border-b-2 border-color-[##a9a9a9]"
+            className="py-1 px-2 text-sm font-medium bg-stone-200 rounded-lg"
           >
             {item.name}
           </div>
