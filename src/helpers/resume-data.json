@@ -2,7 +2,7 @@
     "basics": {
       "name": "Jane Doe",
       "label": "Frontend Developer",
-      "image": "https://randomuser.me/api/portraits/thumb/men/75.jpg",
+      "image": "https://randomuser.me/api/portraits/women/40.jpg",
       "email": "janedoe@email.com",
       "phone": "+91 984443322",
       "url": "www.janedoe.app",
@@ -159,21 +159,18 @@
 }
 ,
 
-"awards": [
+"projects": [
   {
-    "title": "Outstanding Community Impact Award",
-    "date": "2021-05-15",
-    "awarder": "Local Tech Initiative",
-    "summary": "* Recognized for significant contributions to technology education in underserved communities",
-    "id": "1"
+    "title": "Responsive E-Commerce Site",
+    "date": "2023",
+    "summary": "Built a fully responsive e-commerce website using Vue.js, improving mobile user experience and increasing sales conversion by 15%."
   },
   {
-    "title": "Excellence in Innovation",
-    "date": "2022-09-30",
-    "awarder": "Tech Innovators Conference",
-    "summary": "Awarded for developing a groundbreaking app that enhances user engagement",
-    "id": "2"
+    "title": "Portfolio Website",
+    "date": "2022",
+    "summary": "Developed a personal portfolio site using TypeScript and Vue.js, showcasing web development skills and personal projects."
   }
+  
 ]
 
   }

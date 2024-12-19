@@ -83,11 +83,9 @@ export interface IVolunteer {
   isVolunteeringNow: boolean;
 }
 
-export interface IAwards {
-  id: string;
+export interface IPersonalProject {
   title: string;
-  awarder: string;
-  date: dayjs.Dayjs;
+  date: string;
   summary: string;
 }
 

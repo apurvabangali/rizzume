@@ -4,7 +4,7 @@ import { Objective } from './components/Objective';
 import { SkillsSection } from './components/Skills';
 import { SummarySection } from './components/Summary';
 import { WorkSection } from './components/Work';
-import { AwardSection } from './components/Awards';
+import { PersonalProjectsSection } from './components/PersonalProjects';
 import { useContext } from 'react';
 import { StateContext } from '../../modules/builder/resume/ResumeLayout';
 
@@ -24,12 +24,12 @@ export default function FormalTemplate() {
       />
       <div className="flex">
         <div className="basis-[60%] p-3">
-          {/* Remove `value` prop */}
+        
           <SummarySection summary={resumeData.basics.summary} />
 
           <WorkSection experience={resumeData.work} />
 
-          <AwardSection awardsReceived={resumeData.awards} />
+          <PersonalProjectsSection personalProjects={resumeData.personalProjects} />
         </div>
 
         <div className="basis-[40%] p-3">
