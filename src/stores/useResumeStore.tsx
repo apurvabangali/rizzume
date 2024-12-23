@@ -25,3 +25,17 @@ export const useResumeStore = () => {
     },
   };
 };
+
+export const resetResumeStore = () => {
+  useBasicDetails.getState().reset(ResumeData.basics);
+  useLanguages.getState().reset(ResumeData.skills.languages);
+  useFrameworks.getState().reset(ResumeData.skills.frameworks);
+  useLibraries.getState().reset(ResumeData.skills.libraries);
+  useDatabases.getState().reset(ResumeData.skills.databases);
+  useTechnologies.getState().reset(ResumeData.skills.technologies);
+  usePractices.getState().reset(ResumeData.skills.practices);
+  useTools.getState().reset(ResumeData.skills.tools);
+  useExperiences.getState().reset(ResumeData.work);
+  useEducations.getState().reset(ResumeData.education);
+  
+};

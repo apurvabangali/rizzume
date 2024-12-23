@@ -2,6 +2,7 @@ import { useState } from 'react';
 import DataHeaders from './components/EditHeaders';
 import EditSection from './components/EditSections';
 import { headers } from '../../../helpers/constants/editor-data';
+import { resetResumeStore } from '../../../stores/useResumeStore';
 
 
 const EditorLayout = () => {
@@ -23,8 +24,8 @@ const EditorLayout = () => {
       <div className="bg-resume-50 h-full text-resume-800 p-6 overflow-auto relative no-scrollbar shadow-level-4dp">
         {displayElement}
 
-        <div className="mt-8">
-          
+        <div className="mt-12 ">
+          <button className="border border-[#000] px-4 py-1" onClick={resetResumeStore}>Reset</button>
         </div>
       </div>
     
