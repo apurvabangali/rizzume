@@ -2,9 +2,11 @@ import React, { ChangeEvent, Fragment, useCallback } from 'react';
 import TextField from '@mui/material/TextField';
 import { useEducations } from '../../../../../../stores/education';
 import { IEducationItem } from '../../../../../../stores/education.interface';
-
-
-
+import { DatePicker } from '@mui/x-date-pickers/DatePicker';
+import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
+import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
+import dayjs from 'dayjs';
+import { SwitchWidget } from '../../../../../../helpers/common/components/Switch';
 
 interface IEducationProps {
   educationInfo: IEducationItem;
@@ -29,7 +31,7 @@ const Education: React.FC<IEducationProps> = ({ educationInfo, currentIndex }) =
           currentExpInfo.score = value;
           break;
         case 'startDate':
-          if (value?.isValid()) {
+          if (dayjs(value).isValid()) {
             currentExpInfo.startDate = value;
           }
           break;
@@ -37,7 +39,7 @@ const Education: React.FC<IEducationProps> = ({ educationInfo, currentIndex }) =
           currentExpInfo.isStudyingHere = value;
           break;
         case 'endDate':
-          if (value?.isValid()) {
+          if (dayjs(value).isValid()) {
             currentExpInfo.endDate = value;
           }
           break;
@@ -51,62 +53,100 @@ const Education: React.FC<IEducationProps> = ({ educationInfo, currentIndex }) =
   );
 
   return (
-    <Fragment>
-      <TextField
-        label="School or College name"
-        variant="outlined"
-        value={educationInfo.institution}
-        onChange={(e: ChangeEvent<HTMLInputElement>) => {
-          const value = e.target.value;
-          onChangeHandler('academyName', value);
+    <LocalizationProvider dateAdapter={AdapterDayjs}>
+      <Fragment>
+        <TextField
+          label="School or College name"
+          variant="outlined"
+          value={educationInfo.institution}
+          onChange={(e: ChangeEvent<HTMLInputElement>) => {
+            const value = e.target.value;
+            onChangeHandler('academyName', value);
+          }}
+          autoComplete="off"
+          fullWidth
+          required
+          autoFocus={true}
+          sx={{ marginBottom: '26px' }}
+        />
+        <TextField
+          label="Degree"
+          variant="outlined"
+          value={educationInfo.studyType}
+          onChange={(e: ChangeEvent<HTMLInputElement>) => {
+            const value = e.target.value;
+            onChangeHandler('degree', value);
+          }}
+          autoComplete="off"
+          fullWidth
+          required
+          sx={{ marginBottom: '26px' }}
+        />
+        <TextField
+          label="Area"
+          variant="outlined"
+          value={educationInfo.area}
+          onChange={(e: ChangeEvent<HTMLInputElement>) => {
+            const value = e.target.value;
+            onChangeHandler('area', value);
+          }}
+          autoComplete="off"
+          fullWidth
+          required
+          sx={{ marginBottom: '26px' }}
+        />
+        <TextField
+          label="Grade"
+          variant="outlined"
+          value={educationInfo.score}
+          onChange={(e: ChangeEvent<HTMLInputElement>) => {
+            const value = e.target.value;
+            onChangeHandler('grade', value);
+          }}
+          autoComplete="off"
+          fullWidth
+          required
+          sx={{ marginBottom: '26px' }}
+        />
+        <DatePicker
+          label="Start date"
+          value={dayjs(educationInfo.startDate)}
+          onChange={(newDate) => {
+            onChangeHandler('startDate', newDate);
+          }}
+          slotProps={{ calendarHeader:{format: 'MM/YYYY'},
+            textField: {
+              variant: 'outlined',
+              margin: 'normal',
+              helperText: 'Please select a valid start date',
+            },
+          }}
+        />
+        <SwitchWidget
+        label={'I currently study here'}
+        value={educationInfo.isStudyingHere ?? false}
+        onChange={(newValue: boolean) => {
+          onChangeHandler('isStudyingHere', newValue);
         }}
-        autoComplete="off"
-        fullWidth
-        required
-        autoFocus={true}
-        sx={{ marginBottom: '26px' }}
       />
-      <TextField
-        label="Degree"
-        variant="outlined"
-        value={educationInfo.studyType}
-        onChange={(e: ChangeEvent<HTMLInputElement>) => {
-          const value = e.target.value;
-          onChangeHandler('degree', value);
+       <DatePicker
+        label="End date"
+        value={dayjs(educationInfo.endDate)}
+        onChange={(newDate) => {
+          onChangeHandler('endDate', newDate);
         }}
-        autoComplete="off"
-        fullWidth
-        required
-        sx={{ marginBottom: '26px' }}
+        slotProps={{ calendarHeader:{format: 'MM/YYYY'},
+        textField: {
+          variant: 'outlined',
+          margin: 'normal',
+          helperText: 'Please select a valid start date',
+        },
+      }}
+        
+        disabled={educationInfo.isStudyingHere}
       />
-      <TextField
-        label="Area"
-        variant="outlined"
-        value={educationInfo.area}
-        onChange={(e: ChangeEvent<HTMLInputElement>) => {
-          const value = e.target.value;
-          onChangeHandler('area', value);
-        }}
-        autoComplete="off"
-        fullWidth
-        required
-        sx={{ marginBottom: '26px' }}
-      />
-      <TextField
-        label="Grade"
-        variant="outlined"
-        value={educationInfo.score}
-        onChange={(e: ChangeEvent<HTMLInputElement>) => {
-          const value = e.target.value;
-          onChangeHandler('grade', value);
-        }}
-        autoComplete="off"
-        fullWidth
-        required
-        sx={{ marginBottom: '26px' }}
-      />
-       
-    </Fragment>
+      </Fragment>
+    </LocalizationProvider>
   );
 };
 

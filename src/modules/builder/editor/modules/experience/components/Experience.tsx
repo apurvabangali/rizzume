@@ -3,6 +3,11 @@ import TextField from '@mui/material/TextField';
 import { useExperiences } from '../../../../../../stores/experience';
 import { IExperienceItem } from '../../../../../../stores/experience.interface';
 import { RichtextEditor } from '../../.../../../../../../helpers/common/components/richtext';
+import { SwitchWidget } from '../../../../../../helpers/common/components/Switch';
+import { DatePicker } from '@mui/x-date-pickers/DatePicker';
+import dayjs from 'dayjs';
+import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
+import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
 
 
 interface IExperienceProps {
@@ -57,6 +62,7 @@ const Experience: React.FC<IExperienceProps> = ({ experienceInfo, currentIndex }
   );
 
   return (
+    <LocalizationProvider dateAdapter={AdapterDayjs}>
     <Fragment>
       <TextField
         label="Comapany name"
@@ -85,7 +91,42 @@ const Experience: React.FC<IExperienceProps> = ({ experienceInfo, currentIndex }
         required
         sx={{ marginBottom: '26px' }}
       />
-      
+      <DatePicker
+        label="Start date"
+        value={dayjs(experienceInfo.startDate)}
+        onChange={(newDate) => {
+          onChangeHandler('startDate', newDate);
+        }}
+        slotProps={{ calendarHeader:{format: 'MM/YYYY'},
+        textField: {
+          variant: 'outlined',
+          margin: 'normal',
+          helperText: 'Please select a valid start date',
+        },}}
+      />
+      <SwitchWidget
+        label={'I currently work here'}
+        value={experienceInfo.isWorkingHere ?? false}
+        onChange={(newValue: boolean) => {
+          onChangeHandler('isWorkingHere', newValue);
+        }}
+      />
+      <DatePicker
+        label="End date"
+        value={dayjs(experienceInfo.isWorkingHere ? null : experienceInfo.endDate)}
+        onChange={(newDate) => {
+          onChangeHandler('endDate', newDate);
+        }}
+        
+        slotProps={{ calendarHeader:{format: 'MM/YYYY'},
+        textField: {
+          variant: 'outlined',
+          margin: 'normal',
+          helperText: 'Please select a valid start date',
+        },
+        }}
+        disabled={experienceInfo.isWorkingHere}
+      />
       <RichtextEditor
         label="Few points on this work experience"
         value={experienceInfo.summary}
@@ -93,6 +134,7 @@ const Experience: React.FC<IExperienceProps> = ({ experienceInfo, currentIndex }
         name="summary"
       />
     </Fragment>
+    </LocalizationProvider>
   );
 };
 
