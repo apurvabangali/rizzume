@@ -1,4 +1,3 @@
-import * as Separator from "@radix-ui/react-separator";
 import { motion } from 'framer-motion';
 import { headers } from '../../../../helpers/constants/editor-data';
 import HeaderTitle from '../atoms/HeaderTitle';
@@ -14,8 +13,7 @@ const EditHeaders = ({ onLinkClick }: { onLinkClick: (link: string) => void }) =
       {Object.entries(headers).map(([link, { title }]) => (
         <a onClick={() => onLinkClick(link)} key={title}>
           <HeaderTitle title={title} />
-          <Separator.Root orientation="horizontal"
-           style={{ margin: '10px 0', borderBottom: '1px solid',color:'bluegreen', width: '100%' }} />
+          
         </a>
       ))}
     </motion.div>

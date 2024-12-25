@@ -21,11 +21,11 @@ const EditorLayout = () => {
 
   return (
    
-      <div className="bg-resume-50 h-full text-resume-800 p-6 overflow-auto relative no-scrollbar shadow-level-4dp">
+      <div className="bg-[#FCFCFC] h-full text-resume-800  overflow-auto relative no-scrollbar p-4 shadow-level-4dp">
         {displayElement}
 
         <div className="mt-12 ">
-          <button className="border border-[#000] px-4 py-1" onClick={resetResumeStore}>Reset</button>
+          <button className="border border-[#000]  px-4 py-1" onClick={resetResumeStore}>Reset</button>
         </div>
       </div>
     
