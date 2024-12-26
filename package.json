@@ -21,6 +21,7 @@
     "@radix-ui/react-separator": "^1.1.1",
     "@radix-ui/react-tabs": "^1.1.2",
     "@radix-ui/themes": "^3.1.6",
+    "export-from-json": "^1.7.4",
     "html-react-parser": "^5.2.0",
     "jodit": "^4.2.47",
     "motion": "^11.14.1",
