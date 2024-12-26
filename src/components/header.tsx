@@ -4,9 +4,40 @@ import { useEducations } from '../stores/education';
 import { useExperiences } from '../stores/experience';
 import { useLanguages, useFrameworks, useLibraries, useDatabases, useTechnologies, usePractices, useTools } from '../stores/skill';
 import { useProjects } from '../stores/projects';
+import exportFromJSON from 'export-from-json';
+import DEFAULT_RESUME_JSON from '../helpers/resume-data.json';
 
 
 const Header: React.FC = () => {
+
+    const exportResumeData = useCallback(() => {
+        const updatedResumeJson = {
+          ...DEFAULT_RESUME_JSON,
+          basics: {
+            ...DEFAULT_RESUME_JSON.basics,
+            ...useBasicDetails.getState().values,
+          },
+          work: useExperiences.getState().experiences,
+          education: useEducations.getState().academics,
+          skills: {
+            languages: useLanguages.getState().get(),
+            frameworks: useFrameworks.getState().get(),
+            technologies: useTechnologies.getState().get(),
+            libraries: useLibraries.getState().get(),
+            databases: useDatabases.getState().get(),
+            practices: usePractices.getState().get(),
+            tools: useTools.getState().get(),
+          },
+        
+        };
+        const fileName = updatedResumeJson.basics.name + '_' + new Date().toLocaleString();
+        const exportType = exportFromJSON.types.json;
+        exportFromJSON({
+          data: updatedResumeJson,
+          fileName,
+          exportType,
+        });
+      }, []);
 
     const fileInputRef = useRef(null);
     const handleFileChange = useCallback((event: ChangeEvent<HTMLInputElement>) => {
@@ -76,6 +107,10 @@ const Header: React.FC = () => {
                                 accept="application/json"
                                 onChange={handleFileChange}
                             /></button></li>
+                            <li>
+                        <button
+                            onClick={exportResumeData}
+                             >Export</button></li>
                     <li><a><img className='w-8 h-8' src="/icons/github.svg" /></a></li>
                 </ul>
             </nav>
