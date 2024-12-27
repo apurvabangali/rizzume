@@ -15,7 +15,11 @@ const ProjectsLayout = () => {
   const [expanded, setExpanded] = useState<string | false>(false);
 
   useEffect(() => {
-    setExpanded(allProjects[0]?.id); 
+    if (allProjects.length > 0) {
+      setExpanded(allProjects[allProjects.length - 1]?.id); 
+    } else {
+      setExpanded(false);
+    }
   }, [allProjects]);
 
   const handleChange = (panel: string, isExpanded: boolean) => {
@@ -24,26 +28,25 @@ const ProjectsLayout = () => {
 
   return (
     <div className="flex flex-col gap-8 mb-8">
-      {allProjects.map((project,index) => (
+      {allProjects.map((project, index) => (
         <MoveEditSection
-        key={project.id}
-        title={project.title || 'Project'} 
-        expanded={expanded === project.id} 
-        length={allProjects.length} 
-        index={index} 
-        clickHandler={() => handleChange(project.id, expanded !== project.id)} 
-        onMoveUp={onMoveUp} 
-        onMoveDown={onMoveDown} 
-        onDelete={removeProject} 
-      >
-        {/* Wrap multiple components inside a single div */}
-        <div>
-          <Projects projectInfo={project} currentIndex={index} /> {/* Updated component */}
-        </div>
-      </MoveEditSection>
-      
+          key={project.id}
+          title={project.title || 'Project'} 
+          expanded={expanded === project.id} 
+          length={allProjects.length} 
+          index={index} 
+          clickHandler={() => handleChange(project.id, expanded !== project.id)} 
+          onMoveUp={onMoveUp} 
+          onMoveDown={onMoveDown} 
+          onDelete={removeProject} 
+        >
+         
+          <div>
+            <Projects projectInfo={project} currentIndex={index} />
+          </div>
+        </MoveEditSection>
       ))}
-      <AddPersonalProject handleChange={handleChange} isEmpty={allProjects.length === 0} /> {/* Updated component */}
+      <AddPersonalProject handleChange={handleChange} isEmpty={allProjects.length === 0} /> 
     </div>
   );
 };

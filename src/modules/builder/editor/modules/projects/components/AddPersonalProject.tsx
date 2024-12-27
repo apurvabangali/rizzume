@@ -2,12 +2,13 @@ import { useMemo } from 'react';
 import { useProjects } from '../../../../../../stores/projects';  
 import { IProjectItem } from '../../../../../../stores/projects.interface'; 
 
-
 const NEW_PROJECT: IProjectItem = {
-  title: '',
-  date: null,
-  summary: '',
   id: '',
+  title: '',
+  startDate: null,
+  endDate: null,
+  summary: '',
+  isWorking: false
 };
 
 const AddPersonalProject = ({
@@ -17,17 +18,16 @@ const AddPersonalProject = ({
   handleChange: (name: string, isExpanded: boolean) => void;
   isEmpty: boolean;
 }) => {
-  
-  const addProjectToStore = useProjects((state) => state.add); 
 
+  const addProjectToStore = useProjects((state) => state.add);
 
   const onCreateProject = () => {
-    const uniqueExpandedId = `${Math.random()}`;  
-    NEW_PROJECT.id = uniqueExpandedId;
-    addProjectToStore(NEW_PROJECT);  
-    handleChange(uniqueExpandedId, true);  
+    const uniqueExpandedId = `${Math.random()}`;
+    const newProject: IProjectItem = { ...NEW_PROJECT, id: uniqueExpandedId };
+    
+    addProjectToStore(newProject);
+    handleChange(uniqueExpandedId, true);
   };
-
 
   const buttonCaption = useMemo(() => {
     if (isEmpty) {
