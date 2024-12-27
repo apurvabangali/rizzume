@@ -1,11 +1,13 @@
 export interface IProjectItem {
-    title: string;
-    date: string | null;
-    summary: string;
     id: string;
-}
-
-export interface IProjectsStore {
+    title: string;
+    startDate: string | null;
+    isWorking:boolean;
+    endDate: string | null;
+    summary: string;
+  }
+  
+  export interface IProjectsStore {
     projects: IProjectItem[];
     add: (newProject: IProjectItem) => void;
     get: (index: number) => void;
@@ -14,4 +16,5 @@ export interface IProjectsStore {
     onmoveup: (index: number) => void;
     onmovedown: (index: number) => void;
     updateProject: (index: number, updatedInfo: IProjectItem) => void;
-}
+  }
+  
