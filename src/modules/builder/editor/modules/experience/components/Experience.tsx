@@ -61,12 +61,13 @@ const Experience: React.FC<IExperienceProps> = ({ experienceInfo, currentIndex }
     [onChangeHandler]
   );
 
+
   return (
     <LocalizationProvider dateAdapter={AdapterDayjs}>
     <Fragment>
       <TextField
         label="Comapany name"
-        variant="filled"
+        variant="outlined"
         value={experienceInfo.name}
         onChange={(e: ChangeEvent<HTMLInputElement>) => {
           const value = e.target.value;
@@ -80,7 +81,7 @@ const Experience: React.FC<IExperienceProps> = ({ experienceInfo, currentIndex }
       />
       <TextField
         label="Position"
-        variant="filled"
+        variant="outlined"
         value={experienceInfo.position}
         onChange={(e: ChangeEvent<HTMLInputElement>) => {
           const value = e.target.value;
@@ -99,6 +100,7 @@ const Experience: React.FC<IExperienceProps> = ({ experienceInfo, currentIndex }
         }}
         slotProps={{ calendarHeader:{format: 'MM/YYYY'},
         textField: {
+          fullWidth: true,
           variant: 'outlined',
           margin: 'normal',
           helperText: 'Please select a valid start date',
@@ -120,6 +122,7 @@ const Experience: React.FC<IExperienceProps> = ({ experienceInfo, currentIndex }
         
         slotProps={{ calendarHeader:{format: 'MM/YYYY'},
         textField: {
+          fullWidth: true,
           variant: 'outlined',
           margin: 'normal',
           helperText: 'Please select a valid start date',

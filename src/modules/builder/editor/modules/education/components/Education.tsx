@@ -116,6 +116,7 @@ const Education: React.FC<IEducationProps> = ({ educationInfo, currentIndex }) =
           }}
           slotProps={{ calendarHeader:{format: 'MM/YYYY'},
             textField: {
+              fullWidth: true,
               variant: 'outlined',
               margin: 'normal',
               helperText: 'Please select a valid start date',
@@ -137,6 +138,7 @@ const Education: React.FC<IEducationProps> = ({ educationInfo, currentIndex }) =
         }}
         slotProps={{ calendarHeader:{format: 'MM/YYYY'},
         textField: {
+          fullWidth: true,
           variant: 'outlined',
           margin: 'normal',
           helperText: 'Please select a valid start date',
