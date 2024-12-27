@@ -161,14 +161,20 @@
 
 "projects": [
   {
+    "id":"1",
     "title": "Responsive E-Commerce Site",
-    "date": "2023",
-    "summary": "Built a fully responsive e-commerce website using Vue.js, improving mobile user experience and increasing sales conversion by 15%."
+    "startDate": "2023",
+    "isWorking":false,
+    "summary": "Built a fully responsive e-commerce website using Vue.js, improving mobile user experience and increasing sales conversion by 15%.",
+    "endDate":"2024"
   },
   {
+    "id":"2",
     "title": "Portfolio Website",
-    "date": "2022",
-    "summary": "Developed a personal portfolio site using TypeScript and Vue.js, showcasing web development skills and personal projects."
+    "startDate": "2022",
+    "isWorking":false,
+    "summary": "Developed a personal portfolio site using TypeScript and Vue.js, showcasing web development skills and personal projects.",
+    "endDate":"2023"
   }
   
 ]

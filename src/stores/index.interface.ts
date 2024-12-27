@@ -84,10 +84,15 @@ export interface IVolunteer {
 }
 
 export interface IPersonalProject {
+  id: string;
   title: string;
-  date: string;
+  startDate: string | null;
+  isWorking:boolean;
+  endDate: string | null;
   summary: string;
+  
 }
+
 
 export interface IResume {
   basics: IBasics;
