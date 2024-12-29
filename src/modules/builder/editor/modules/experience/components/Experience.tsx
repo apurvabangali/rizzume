@@ -1,4 +1,4 @@
-import React, { ChangeEvent, Fragment, useCallback } from 'react';
+import React, { ChangeEvent, Fragment, useCallback, useEffect, useRef } from 'react';
 import TextField from '@mui/material/TextField';
 import { useExperiences } from '../../../../../../stores/experience';
 import { IExperienceItem } from '../../../../../../stores/experience.interface';
@@ -8,6 +8,7 @@ import { DatePicker } from '@mui/x-date-pickers/DatePicker';
 import dayjs from 'dayjs';
 import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
 import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
+import { Jodit } from 'jodit';
 
 
 interface IExperienceProps {
@@ -16,6 +17,9 @@ interface IExperienceProps {
 }
 
 const Experience: React.FC<IExperienceProps> = ({ experienceInfo, currentIndex }) => {
+
+  const editorRef = useRef<HTMLTextAreaElement>(null);
+
   const onChangeHandler = useCallback(
     (name: string, value: any) => {
       const currentExpInfo = { ...experienceInfo };
@@ -62,81 +66,99 @@ const Experience: React.FC<IExperienceProps> = ({ experienceInfo, currentIndex }
   );
 
 
+  useEffect(() => {
+    if (editorRef.current) {
+      const editor = Jodit.make(editorRef.current);
+      editor.value = experienceInfo.summary;
+      editor.events.on('change', () => {
+        const updatedSummary = editor.value;
+        onChangeHandler('summary', updatedSummary);
+      });
+      return () => {
+        editor.destruct();
+      };
+    }
+  }, [experienceInfo.summary, onChangeHandler]);
+
   return (
     <LocalizationProvider dateAdapter={AdapterDayjs}>
-    <Fragment>
-      <TextField
-        label="Comapany name"
-        variant="outlined"
-        value={experienceInfo.name}
-        onChange={(e: ChangeEvent<HTMLInputElement>) => {
-          const value = e.target.value;
-          onChangeHandler('companyName', value);
-        }}
-        autoComplete="off"
-        fullWidth
-        required
-        autoFocus={true}
-        sx={{ marginBottom: '26px' }}
-      />
-      <TextField
-        label="Position"
-        variant="outlined"
-        value={experienceInfo.position}
-        onChange={(e: ChangeEvent<HTMLInputElement>) => {
-          const value = e.target.value;
-          onChangeHandler('position', value);
-        }}
-        autoComplete="off"
-        fullWidth
-        required
-        sx={{ marginBottom: '26px' }}
-      />
-      <DatePicker
-        label="Start date"
-        value={dayjs(experienceInfo.startDate)}
-        onChange={(newDate) => {
-          onChangeHandler('startDate', newDate);
-        }}
-        slotProps={{ calendarHeader:{format: 'MM/YYYY'},
-        textField: {
-          fullWidth: true,
-          variant: 'outlined',
-          margin: 'normal',
-          helperText: 'Please select a valid start date',
-        },}}
-      />
-      <SwitchWidget
-        label={'I currently work here'}
-        value={experienceInfo.isWorkingHere ?? false}
-        onChange={(newValue: boolean) => {
-          onChangeHandler('isWorkingHere', newValue);
-        }}
-      />
-      <DatePicker
-        label="End date"
-        value={dayjs(experienceInfo.isWorkingHere ? null : experienceInfo.endDate)}
-        onChange={(newDate) => {
-          onChangeHandler('endDate', newDate);
-        }}
-        
-        slotProps={{ calendarHeader:{format: 'MM/YYYY'},
-        textField: {
-          fullWidth: true,
-          variant: 'outlined',
-          margin: 'normal',
-          helperText: 'Please select a valid start date',
-        },
-        }}
-        disabled={experienceInfo.isWorkingHere}
-      />
-      <RichtextEditor
-        label="Few points on this work experience"
-        value={experienceInfo.summary}
-        onChange={onSummaryChange}
-        name="summary"
-      />
-    </Fragment>
+      <Fragment>
+        <TextField
+          label="Comapany name"
+          variant="outlined"
+          value={experienceInfo.name}
+          onChange={(e: ChangeEvent<HTMLInputElement>) => {
+            const value = e.target.value;
+            onChangeHandler('companyName', value);
+          }}
+          autoComplete="off"
+          fullWidth
+          required
+          autoFocus={true}
+          sx={{ marginBottom: '26px' }}
+        />
+        <TextField
+          label="Position"
+          variant="outlined"
+          value={experienceInfo.position}
+          onChange={(e: ChangeEvent<HTMLInputElement>) => {
+            const value = e.target.value;
+            onChangeHandler('position', value);
+          }}
+          autoComplete="off"
+          fullWidth
+          required
+          sx={{ marginBottom: '26px' }}
+        />
+        <DatePicker
+          label="Start date"
+          value={dayjs(experienceInfo.startDate)}
+          onChange={(newDate) => {
+            onChangeHandler('startDate', newDate);
+          }}
+          slotProps={{
+            calendarHeader: { format: 'MM/YYYY' },
+            textField: {
+              fullWidth: true,
+              variant: 'outlined',
+              margin: 'normal',
+              helperText: 'Please select a valid start date',
+            },
+          }}
+        />
+        <SwitchWidget
+          label={'I currently work here'}
+          value={experienceInfo.isWorkingHere ?? false}
+          onChange={(newValue: boolean) => {
+            onChangeHandler('isWorkingHere', newValue);
+          }}
+        />
+        <DatePicker
+          label="End date"
+          value={dayjs(experienceInfo.isWorkingHere ? null : experienceInfo.endDate)}
+          onChange={(newDate) => {
+            onChangeHandler('endDate', newDate);
+          }}
+
+          slotProps={{
+            calendarHeader: { format: 'MM/YYYY' },
+            textField: {
+              fullWidth: true,
+              variant: 'outlined',
+              margin: 'normal',
+              helperText: 'Please select a valid start date',
+            },
+          }}
+          disabled={experienceInfo.isWorkingHere}
+        />
+        <RichtextEditor
+          label="Few points on this work experience"
+          value={experienceInfo.summary}
+          onChange={onSummaryChange}
+          name="summary"
+        />
+
+      </Fragment>
     </LocalizationProvider>
   );
 };
