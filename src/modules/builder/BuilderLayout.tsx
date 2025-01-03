@@ -1,9 +1,11 @@
 import EditorLayout from './editor/EditorLayout';
+import NavBarLayout from './nav-bar/NavbarLayout';
 import { ResumeLayout } from './resume/ResumeLayout';
 
 const BuilderLayout = () => {
   return (
     <div className="flex flex-col h-screen">
+      <NavBarLayout />
        <main className="flex flex-1 h-full">
     <aside className="w-[25vw] min-w-[20rem] print:hidden">
       <EditorLayout />
