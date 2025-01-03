@@ -1,8 +1,10 @@
 import React from 'react'
+import Header from '../../components/header';
 
 const Home: React.FC = () => {
     return (
         <>
+        <Header/>
        <div className='flex lg:flex-row flex-col-reverse p-6 justify-center items-center lg:p-24'>
         <div>
          <p className='lg:text-5xl text-xl'>Get your Resume <b>rizzed </b> up in minutes.</p>

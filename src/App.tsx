@@ -7,7 +7,6 @@ import BuilderLayout from './modules/builder/BuilderLayout';
 const App: React.FC = () => {
   return (
     <div>
-    <Header/>
     <Routes>
       <Route path="/" element={<Home />} />
       <Route path="/builder" element={<BuilderLayout/>}/>
