@@ -18,6 +18,7 @@ import exportFromJSON from 'export-from-json';
 import { useBasicDetails } from '../../../stores/basic';
 import { useEducations } from '../../../stores/education';
 import { useExperiences } from '../../../stores/experience';
+import { PrintResume } from './atoms/PrintResume';
 
 
 const TOTAL_TEMPLATES_AVAILABLE = Object.keys(AVAILABLE_TEMPLATES).length;
@@ -64,7 +65,7 @@ const NavBarLayout = () => {
 
     reader.readAsText(fileObj);
 
-    event.target.value = ''; // To read the same file
+    event.target.value = ''; 
 
     reader.onload = (e) => {
       if (typeof e.target?.result === 'string') {
@@ -133,6 +134,8 @@ const NavBarLayout = () => {
               onChange={handleFileChange}
             />
           </button>
+
+          <PrintResume/>
          
         </NavBarActions>
       </div>
