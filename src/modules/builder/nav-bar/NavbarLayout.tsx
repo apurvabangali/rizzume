@@ -1,11 +1,8 @@
 import { ChangeEvent, useCallback, useRef } from 'react';
-import { NavBarActions, NavBarMenu} from './atoms';
+import { NavBarActions, NavBarMenu } from './atoms';
 import {
-  useDatabases,
   useFrameworks,
   useLanguages,
-  useLibraries,
-  usePractices,
   useTechnologies,
   useTools,
 } from '../../../stores/skill';
@@ -19,12 +16,13 @@ import { useBasicDetails } from '../../../stores/basic';
 import { useEducations } from '../../../stores/education';
 import { useExperiences } from '../../../stores/experience';
 import { PrintResume } from './atoms/PrintResume';
+import { toast } from 'react-toastify';
 
 
 const TOTAL_TEMPLATES_AVAILABLE = Object.keys(AVAILABLE_TEMPLATES).length;
 
 const NavBarLayout = () => {
-  
+
   const fileInputRef = useRef(null);
 
   const exportResumeData = useCallback(() => {
@@ -40,9 +38,6 @@ const NavBarLayout = () => {
         languages: useLanguages.getState().get(),
         frameworks: useFrameworks.getState().get(),
         technologies: useTechnologies.getState().get(),
-        libraries: useLibraries.getState().get(),
-        databases: useDatabases.getState().get(),
-        practices: usePractices.getState().get(),
         tools: useTools.getState().get(),
       },
     };
@@ -65,7 +60,7 @@ const NavBarLayout = () => {
 
     reader.readAsText(fileObj);
 
-    event.target.value = ''; 
+    event.target.value = '';
 
     reader.onload = (e) => {
       if (typeof e.target?.result === 'string') {
@@ -79,22 +74,21 @@ const NavBarLayout = () => {
         const {
           languages = [],
           frameworks = [],
-          libraries = [],
-          databases = [],
           technologies = [],
-          practices = [],
           tools = [],
         } = skills;
         useBasicDetails.getState().reset(basics);
         useLanguages.getState().reset(languages);
         useFrameworks.getState().reset(frameworks);
-        useLibraries.getState().reset(libraries);
-        useDatabases.getState().reset(databases);
         useTechnologies.getState().reset(technologies);
-        usePractices.getState().reset(practices);
         useTools.getState().reset(tools);
         useExperiences.getState().reset(work);
         useEducations.getState().reset(education);
+        // Log to confirm this is called
+        console.log('Import successful, showing toast!');
+
+        // Show toast after the file is imported successfully
+        toast.success("Resume imported successfully!");
       }
     };
   }, []);
@@ -110,14 +104,14 @@ const NavBarLayout = () => {
             caption={`Templates (${TOTAL_TEMPLATES_AVAILABLE})`}
             popoverChildren={<TemplateSelect />}
           />
-          
+
         </NavBarMenu>
         <NavBarActions>
-          <button  onClick={exportResumeData}>
+          <button onClick={exportResumeData}>
             Export
           </button>
           <button
-            
+
             onClick={() => {
               if (fileInputRef.current) {
                 const fileElement = fileInputRef.current as HTMLInputElement;
@@ -135,11 +129,11 @@ const NavBarLayout = () => {
             />
           </button>
 
-          <PrintResume/>
-         
+          <PrintResume />
+
         </NavBarActions>
       </div>
-      
+
     </nav>
   );
 };
