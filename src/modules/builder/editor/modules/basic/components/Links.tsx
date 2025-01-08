@@ -102,16 +102,7 @@ const Links = ({
         fullWidth
         sx={{ marginBottom: 2 , marginTop: 2}} 
       />
-      <TextField
-        label="Twitter"
-        variant="outlined"
-        value={networks[SUPPORTED_NETWORKS.twitter].url}
-        onChange={(event: ChangeEvent<HTMLInputElement>) => {
-          onURLChange(event.target.value, SUPPORTED_NETWORKS.twitter);
-        }}
-        fullWidth
-        sx={{ marginBottom: 2 }} 
-      />
+    
       <TextField
         label="Github"
         variant="outlined"
@@ -122,46 +113,8 @@ const Links = ({
         fullWidth
         sx={{ marginBottom: 2 }} 
       />
-      <TextField
-        label="Hackerrank"
-        variant="outlined"
-        value={networks[SUPPORTED_NETWORKS.hackerrank].url}
-        onChange={(event: ChangeEvent<HTMLInputElement>) => {
-          onURLChange(event.target.value, SUPPORTED_NETWORKS.hackerrank);
-        }}
-        fullWidth
-        sx={{ marginBottom: 2 }} 
-      />
-      <TextField
-        label="HackerEarth"
-        variant="outlined"
-        value={networks[SUPPORTED_NETWORKS.hackerearth].url}
-        onChange={(event: ChangeEvent<HTMLInputElement>) => {
-          onURLChange(event.target.value, SUPPORTED_NETWORKS.hackerearth);
-        }}
-        fullWidth
-        sx={{ marginBottom: 2 }} 
-      />
-      <TextField
-        label="CodeChef"
-        variant="outlined"
-        value={networks[SUPPORTED_NETWORKS.codechef].url}
-        onChange={(event: ChangeEvent<HTMLInputElement>) => {
-          onURLChange(event.target.value, SUPPORTED_NETWORKS.codechef);
-        }}
-        fullWidth
-        sx={{ marginBottom: 2 }} 
-      />
-      <TextField
-        label="Leetcode"
-        variant="outlined"
-        value={networks[SUPPORTED_NETWORKS.leetcode].url}
-        onChange={(event: ChangeEvent<HTMLInputElement>) => {
-          onURLChange(event.target.value, SUPPORTED_NETWORKS.leetcode);
-        }}
-        fullWidth
-        sx={{ marginBottom: 2 }} 
-      />
+     
+      
     </Fragment>
   );
 };

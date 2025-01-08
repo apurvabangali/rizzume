@@ -82,26 +82,7 @@ const Contacts = ({
         fullWidth
         sx={{ marginBottom: 2 }} 
       />
-      <TextField
-        label="Relevant Experience"
-        variant="outlined"
-        value={basicTabs.relExp}
-        onChange={(event: ChangeEvent<HTMLInputElement>) => {
-          onChangeHandler(event.target.value, 'relExp');
-        }}
-        fullWidth
-        sx={{ marginBottom: 2 }} 
-      />
-      <TextField
-        label="Total Experience"
-        variant="outlined"
-        value={basicTabs.totalExp}
-        onChange={(event: ChangeEvent<HTMLInputElement>) => {
-          onChangeHandler(event.target.value, 'totalExp');
-        }}
-        fullWidth
-        sx={{ marginBottom: 2 }} 
-      />
+
     </Fragment>
   );
 };
