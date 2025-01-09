@@ -84,10 +84,9 @@ const NavBarLayout = () => {
         useTools.getState().reset(tools);
         useExperiences.getState().reset(work);
         useEducations.getState().reset(education);
-        // Log to confirm this is called
+
         console.log('Import successful, showing toast!');
 
-        // Show toast after the file is imported successfully
         toast.success("Resume imported successfully!");
       }
     };
