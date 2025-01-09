@@ -1,10 +1,7 @@
 import { useState } from 'react';
 import {
-  useDatabases,
   useFrameworks,
   useLanguages,
-  useLibraries,
-  usePractices,
   useTechnologies,
   useTools,
 } from '../../../../../stores/skill';
@@ -16,9 +13,6 @@ const SkillsLayout = () => {
     useLanguages(),
     useFrameworks(),
     useTechnologies(),
-    useLibraries(),
-    useDatabases(),
-    usePractices(),
     useTools(),
   ];
 

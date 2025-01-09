@@ -70,44 +70,7 @@ export const useTechnologies = create<ISkillState>()(
   )
 );
 
-export const useLibraries = create<ISkillState>()(
-  persist(
-    (set, get) => ({
-      title: 'Libraries',
-      hasLevel: false,
-      values: resumeData.skills.libraries,
-      isEnabled: true,
-      ...getMethods(set, get),
-    }),
-    { name: 'libraries' }
-  )
-);
 
-export const useDatabases = create<ISkillState>()(
-  persist(
-    (set, get) => ({
-      title: 'Databases',
-      hasLevel: false,
-      values: resumeData.skills.databases,
-      isEnabled: true,
-      ...getMethods(set, get),
-    }),
-    { name: 'databases' }
-  )
-);
-
-export const usePractices = create<ISkillState>()(
-  persist(
-    (set, get) => ({
-      title: 'Practices',
-      hasLevel: false,
-      values: resumeData.skills.practices,
-      isEnabled: true,
-      ...getMethods(set, get),
-    }),
-    { name: 'practices' }
-  )
-);
 
 export const useTools = create<ISkillState>()(
   persist(
