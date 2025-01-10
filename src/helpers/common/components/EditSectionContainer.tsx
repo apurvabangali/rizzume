@@ -11,8 +11,6 @@ const animation = {
   },
 };
 
-const nonEditableStyle =
-  "opacity-60 after:content-[''] after:absolute after:h-full after:w-full after:top-0 after:left-0 after:cursor-not-allowed";
 
 const EditSectionContainer = ({
   title,
@@ -52,7 +50,7 @@ const EditSectionContainer = ({
         {expanded && (
           <motion.div
             className={`bg-resume-10 shadow-sm relative rounded-b-lg px-4 py-6 overflow-hidden ${
-              !isEnabled && nonEditableStyle
+              !isEnabled 
             }`}
             exit={animation.exit}
           >
