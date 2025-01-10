@@ -16,6 +16,7 @@ export const BasicIntro = ({
   email: string;
   phone: string;
   city: string;
+  image:string;
 }) => {
   return (
     <div className="flex justify-center items-center p-2">
