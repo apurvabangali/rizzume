@@ -3,7 +3,7 @@ import { useProjects } from '../../../../../stores/projects';
 import AddPersonalProject from './components/AddPersonalProject'; 
 import Projects from './components/Projects'; 
 import MoveEditSection from '../../../../../helpers/common/components/MoveEditSectionContainer';
-import { IProjectItem } from '../../../../../stores/projects.interface';
+
 
 const ProjectsLayout = () => {
   

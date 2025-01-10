@@ -1,5 +1,4 @@
 
-import React from 'react';
 import { ProfileContact } from '../atoms/ProfileContact';
 import { ProfileName } from '../atoms/ProfileName';
 import { SectionSubtitle } from '../atoms/SectionSubtitle';

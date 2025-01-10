@@ -1,7 +1,6 @@
 import React from 'react';
 import Home from './modules/homepage/home'
 import { Route, Routes } from 'react-router-dom';
-import Header from './components/header';
 import BuilderLayout from './modules/builder/BuilderLayout';
 
 const App: React.FC = () => {

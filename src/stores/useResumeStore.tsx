@@ -3,7 +3,7 @@ import { useBasicDetails } from './basic';
 import { useEducations } from './education';
 import { useExperiences } from './experience';
 import { useProjects } from './projects';
-import { useDatabases, useFrameworks, useLanguages, useLibraries, usePractices, useTechnologies, useTools } from './skill';
+import {  useFrameworks, useLanguages, useTechnologies, useTools } from './skill';
 
 
 

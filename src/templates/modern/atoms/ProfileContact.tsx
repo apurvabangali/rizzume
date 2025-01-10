@@ -1,4 +1,4 @@
-import React from "react";
+
 
 export const ProfileContact = ({ text }: { text: string }) => {
     return (

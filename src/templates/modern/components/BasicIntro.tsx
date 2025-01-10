@@ -1,5 +1,3 @@
-
-import React from 'react';
 import { ProfileContact } from '../atoms/ProfileContact';
 import { ProfileName } from '../atoms/ProfileName';
 import { SectionSubtitle } from '../atoms/SectionSubtitle';
@@ -11,7 +9,6 @@ export const BasicIntro = ({
   email,
   phone,
   city,
-  image,
 }: {
   name: string;
   label: string;
@@ -19,7 +16,6 @@ export const BasicIntro = ({
   email: string;
   phone: string;
   city: string;
-  image: string;
 }) => {
   return (
     <div className="flex justify-center items-center p-2">

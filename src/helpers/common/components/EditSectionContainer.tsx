@@ -17,7 +17,6 @@ const EditSectionContainer = ({
   expanded,
   clickHandler,
   isEnabled,
-  setIsEnabled,
   children,
 }: {
   title: string;

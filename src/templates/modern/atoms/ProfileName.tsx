@@ -1,4 +1,3 @@
-import React from "react";
 
 export const ProfileName = ({ name }: { name: string }) => {
     return (

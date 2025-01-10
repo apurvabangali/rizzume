@@ -1,4 +1,3 @@
-import React from "react";
 
 export const SectionHeading = ({ title }: { title: string }) => {
     return (
