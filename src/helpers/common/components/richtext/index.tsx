@@ -1,5 +1,4 @@
 import { useRef, useEffect, memo, useState } from 'react';
-// import 'jodit/build/jodit.min.css';
 
 import { LinkPlugin } from './plugins/link';
 
@@ -41,7 +40,6 @@ export const RichtextEditor = memo(({ label, onChange, value }: IRichtext) => {
       };
       initEditor();
     }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   useEffect(() => {

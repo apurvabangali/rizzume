@@ -6,7 +6,7 @@ const Header: React.FC = () => {
 
     
     return (
-        <header className="bg-yellow h-14  p-4 ">
+        <header className="bg-yellow h-14 p-4 py-2.5 pl-5 pr-4">
             <nav className='flex justify-between items-center '>
 
                 <div className='flex items-center'>

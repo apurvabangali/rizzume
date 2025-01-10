@@ -85,8 +85,6 @@ const NavBarLayout = () => {
         useExperiences.getState().reset(work);
         useEducations.getState().reset(education);
 
-        console.log('Import successful, showing toast!');
-
         toast.success("Resume imported successfully!");
       }
     };
